@@ -1,0 +1,28 @@
+name: BHH Data Scraper
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # Chạy tự động lúc 20:00 giờ VN hằng ngày
+  workflow_dispatch: # Nút bấm chạy thủ công trên iPhone
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lay code ve may ao
+        uses: actions/checkout@v3
+
+      - name: Cai dat Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Cai dat thu vien
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 pandas
+
+      - name: Chay code cao du lieu
+        env:
+          WEB_APP_URL: ${{ secrets.https://script.google.com/macros/s/AKfycbwYq2BCb2gbLZQKOOvxe2PgcBZ5DVmJ6WiSLGZvNohgstghF5r5MaHPe-zsINw1Cm7gZA/exec }}
+        run: python diendulieu_bhh.py
