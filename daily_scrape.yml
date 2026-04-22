@@ -23,5 +23,5 @@ jobs:
       - name: Run scraper
         env:
           # Anh sẽ dán link Web App vào phần Secrets của GitHub (hướng dẫn dưới đây)
-          WEB_APP_URL: ${{ secrets.WEB_APP_URL }}
+          WEB_APP_URL: ${{ secrets.https://script.google.com/macros/s/AKfycbwYq2BCb2gbLZQKOOvxe2PgcBZ5DVmJ6WiSLGZvNohgstghF5r5MaHPe-zsINw1Cm7gZA/exec }}
         run: python main.py
