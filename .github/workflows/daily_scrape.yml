@@ -2,7 +2,7 @@ name: BHH Data Scraper
 
 on:
   schedule:
-    - cron: '0 13 * * *' # Chạy tự động lúc 20:00 giờ VN hằng ngày
+    - cron: '0 13 * * *' # Tự động chạy lúc 20:00 giờ VN hằng ngày
   workflow_dispatch: # Nút bấm chạy thủ công trên iPhone
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lay code ve may ao
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Đã nâng cấp từ v3 lên v4
 
       - name: Cai dat Python 3.12
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Đã nâng cấp từ v4 lên v5
         with:
           python-version: '3.12'
 
