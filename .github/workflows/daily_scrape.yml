@@ -24,5 +24,5 @@ jobs:
 
       - name: Chay code cao du lieu
         env:
-          WEB_APP_URL: ${{ secrets.https://script.google.com/macros/s/AKfycbwYq2BCb2gbLZQKOOvxe2PgcBZ5DVmJ6WiSLGZvNohgstghF5r5MaHPe-zsINw1Cm7gZA/exec }}
+          WEB_APP_URL: ${{ secrets.WEB_APP_URL }}
         run: python diendulieu_bhh.py
