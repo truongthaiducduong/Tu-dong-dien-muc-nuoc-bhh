@@ -1,0 +1,27 @@
+name: BHH Data Scraper
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # Chạy lúc 13:00 UTC (tức 20h00 giờ VN) hằng ngày
+  workflow_dispatch: # Tạo nút bấm "Run workflow" trên App điện thoại
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        env:
+          # Anh sẽ dán link Web App vào phần Secrets của GitHub (hướng dẫn dưới đây)
+          WEB_APP_URL: ${{ secrets.WEB_APP_URL }}
+        run: python main.py
